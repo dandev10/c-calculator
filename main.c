@@ -1,6 +1,6 @@
 // created by Dandev
 // here i also learned how func and arguments work in c!
-// imple calculator that works only with + / * -
+// simple calculator that works only with + / * -
 
 #include <stdlib.h>
 #include <stdio.h>
