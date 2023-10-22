@@ -43,6 +43,7 @@ void calculator(char operator, double num1, double num2, int result) {
             break;
         default:
             printf("%c is not vaild operator\n", operator);
+            return 1;
     }
 }
 
@@ -61,4 +62,4 @@ int main() {
     return 0;
 }
 
-//feell free to use and change
+//feel free to use and change
