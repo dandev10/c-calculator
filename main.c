@@ -2,11 +2,14 @@
 // here i also learned how func and arguments work in c!
 // simple calculator that works only with + / * -
 
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
-void calculator(char operator, double num1, double num2, int result) {
+void calculator(char operator, double num1, double num2, int result, int y) {
+    
+    
     printf("Enter a math symbol: ");
     scanf("%c", &operator);
 
@@ -15,6 +18,11 @@ void calculator(char operator, double num1, double num2, int result) {
 
     printf("enter number 2: ");
     scanf("%lf", &num2);
+
+    if (num1 == 0 && num2 == 0 && operator == '/') {
+        printf("Error: cannot divied\n");
+        if(y == 1) return;
+    }
 
     switch(operator) {
         case '+':
@@ -30,33 +38,36 @@ void calculator(char operator, double num1, double num2, int result) {
             printf("\nresult is %d\n", result);
             break;
          case '/':
-            if (num1 != 0 || num2 != 0) {
-                printf("cannot divied with 0\n");
-                break;
-            }
-            if (num1 != 0 == num2 != 0) {
-                printf("cannot divied with 0\n");
-                break;
-            }
             result = num1 / num2;
+            //if (num1 == 0 && num2 == 0 && operator == '/') {
+              //  if(y == 1) return;
+                //break;
+            //}
+            if (num1 == 0 || num2 == 0 && operator == '/') {
+                printf("Error: cannot divied\n");
+                if(y == 1) return;
+                break;
+            }
+            
             printf("\nresult is %d\n", result);
             break;
         default:
             printf("%c is not vaild operator\n", operator);
-            return 1;
+            if(y == 1) return;
     }
 }
 
-
+//main func
 int main() {
     //variables
     char operator;
     double num1;
     double num2;
     int result;
+    int y;
 
     //an argument and a func to void
-    calculator(operator, num1, num2, result);
+    calculator(operator, num1, num2, result, y);
 
 
     return 0;
